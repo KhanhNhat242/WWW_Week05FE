@@ -1,0 +1,18 @@
+.header-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+
+    .nav-left{
+        display: flex;
+
+        .nav-item{
+            padding: 0 10px;
+        }
+    }
+}

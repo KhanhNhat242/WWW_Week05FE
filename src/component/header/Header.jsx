@@ -14,9 +14,14 @@ function Header() {
                     <a href='/company' className='nav-link'>Công ty</a>
                 </h3>
             </div>
-            <button>
-                <a>Đăng nhập</a>
-            </button>
+            <div className='nav-right'>
+                <button className='btn-nav-right'>
+                    <a href='/employer'>Nhà tuyển dụng</a>
+                </button>
+                <button className='btn-nav-right'>
+                    <a href='/log-in'>Đăng nhập</a>
+                </button>
+            </div>
         </div>
      );
 }

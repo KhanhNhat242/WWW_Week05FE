@@ -1,0 +1,41 @@
+.company-container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    .company-wrapper{
+        border: 1px solid orange;
+        border-radius: 10px;
+        width: 70%;
+
+        .name{
+            text-align: center;
+            margin: 0;
+        }
+
+        .email-phone-wrapper{
+            display: flex;
+            justify-content: flex-start;
+
+            .email{
+                margin-left: 10px;
+            }
+    
+            .phone{
+                margin-left: 30px;
+            }
+        }
+
+        .about{
+            margin-left: 10px;
+        }
+
+        .link{
+            margin-left: 10px;
+        }
+
+        .address{
+            margin-left: 10px;
+        }
+    }
+}

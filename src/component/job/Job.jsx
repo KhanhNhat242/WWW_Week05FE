@@ -2,6 +2,7 @@ import './Job.scss'
 
 function Job({ jobs }) {
 
+    // console.log(jobs)
 
     return (
         <div className='job-container'>

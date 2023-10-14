@@ -15,4 +15,18 @@
             padding: 0 10px;
         }
     }
+
+    .nav-right{
+        display: flex;
+        align-items: center;
+
+        .btn-nav-right{
+            height: 80%;
+            margin: 10px;
+
+            &:hover{
+                border: 1px solid #747bff;
+            }
+        }
+    }
 }

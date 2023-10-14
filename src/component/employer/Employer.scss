@@ -1,0 +1,51 @@
+.employer-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .employer-wrapper{
+        width: 70%;
+        border: 1px solid orange;
+        border-radius: 10px;
+
+        .employer-form{
+            .infor-title{
+                text-align: center;
+            }
+
+            .address-title{
+                text-align: center;
+            }
+
+            .employer-label{
+                font-size: 15px;
+                padding: 5px;
+            }
+
+            .employer-input{
+                width: 300px;
+                height: 30px;
+                margin: 10px;
+                font-size: 18px;
+            }
+
+            .description{
+                display: flex;
+                align-items: flex-start;
+            }
+
+            .employer-btn-wrapper{
+                display: flex;
+                justify-content: center;
+
+                .employer-btn{
+                    padding: 10px;
+                    background-color: orange;
+                    color: #fff;
+                    margin: 10px;
+                }
+            }
+        }
+    }
+}

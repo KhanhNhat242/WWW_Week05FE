@@ -17,7 +17,7 @@ function Company({ companies }) {
                                 </div>
                                 <p className="about">About: {c.about}</p>
                                 <a className="link">{c.webUrl}</a>
-                                <p className="address">Address: {`${c.address.number + ' ' + c.address.street + ' street, ' + c.address.city + ' city, ' + c.address.country}`}</p>
+                                {/* <p className="address">Address: {`${c.address.number + ' ' + c.address.street + ' street, ' + c.address.city + ' city, ' + c.address.country}`}</p> */}
                             </div>
                         </>
                     )

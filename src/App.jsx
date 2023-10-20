@@ -6,6 +6,8 @@ import Job from './component/job/Job'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Employer from './component/employer/Employer'
+import PickUser from './component/logIn/pickUser/PickUser'
+import LogIn from './component/logIn/LogIn'
 
 function App() {
   const [jobs, setJobs] = useState([])
@@ -32,6 +34,9 @@ function App() {
           <Route path='/company' element={<Company companies={companies} />} />
           <Route path='/job' element={<Job jobs={jobs} />} />
           <Route path='/employer' element={<Employer />} />
+          <Route path='/log-in' element={<PickUser />} />
+          <Route path='/log-in/employer' element={<LogIn />} />
+          <Route path='/log-in/candidate' element={<LogIn />} />
         </Routes>
       </Router>
     </div>

@@ -1,0 +1,35 @@
+.log-in-wrapper{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    .log-in-form{
+        border: 1px solid orange;
+        border-radius: 10px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input-wrapper{
+            display: flex;
+            align-items: center;
+
+            .email-label{
+                margin-right: 20px;
+            }
+    
+            .email-input{
+                padding: 10px;
+            }
+        }
+
+        .log-in-btn{
+            background-color: orange;
+            color: #fff;
+            margin-top: 10px;
+            height: 30px;
+        }
+    }
+}

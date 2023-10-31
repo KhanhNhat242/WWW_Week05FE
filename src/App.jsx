@@ -10,6 +10,7 @@ import PickUser from './component/logIn/pickUser/PickUser'
 import LogIn from './component/logIn/LogIn'
 
 function App() {
+
   const [jobs, setJobs] = useState([])
   const [companies, setCompanies] = useState([])
 

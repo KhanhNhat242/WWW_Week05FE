@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { createContext, useState } from 'react';
 import './LogIn.scss'
-import axios from 'axios';
+import axios from 'axios';  
+// import { useNavigate } from 'react-router-dom';
+
+export const CompNameContext = createContext()
 
 function LogIn() {
     const [email, setEmail] = useState('')
+    // const navigate = useNavigate()
 
     const handleLogIn = async (e) => {
         e.preventDefault()
@@ -11,8 +15,10 @@ function LogIn() {
         const res = await data.data
         // console.log(email)
         // console.log(res)
-        if(res)
-            alert('Log in sucessful')
+        if(res !== 'fail'){
+            alert('Log in sucessful')  
+            document.cookie = 'compName = ' + res + '; path=/;'
+        }
         else alert('Log in fail')
     }
 

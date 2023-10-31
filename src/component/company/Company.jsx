@@ -1,7 +1,7 @@
 import './Company.scss'
 
 function Company({ companies }) {
-    console.log(companies)
+    // console.log(companies)
 
     return ( 
         <div className="company-container">
@@ -9,7 +9,7 @@ function Company({ companies }) {
                 companies.map((c) => {
                     return (
                         <>
-                            <div className="company-wrapper">
+                            <div className="company-wrapper" key={c.id}>
                                 <h2 className="name">{c.compName}</h2>
                                 <div className='email-phone-wrapper'>
                                     <p className="email">Email: {c.email}</p>

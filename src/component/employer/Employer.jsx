@@ -32,10 +32,10 @@ function Employer() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        await axios.post('http://localhost:8080/addAddress', address)
+        console.log('company: ', company)
+        // console.log('address: ', address)
+        // await axios.post('http://localhost:8080/addAddress', address)
         await axios.post('http://localhost:8080/addCompany', company)
-        // console.log(company)
-        // console.log(address)
         navigate('/company')
     }
 
@@ -57,7 +57,7 @@ function Employer() {
                         <textarea type="text" name='about' rows='7' cols='60' value={company.about} onChange={handleInput} /> <br />
                     </div>
                     <hr color='orange' />
-                    <h3 className='address-title'>Địa chỉ</h3>
+                    {/* <h3 className='address-title'>Địa chỉ</h3>
                     <label className='employer-label'>Quốc gia:</label>
                     <input className='employer-input' type='text' name='country' value={address.country} onChange={handleInput} />   
                     <label className='employer-label'>Thành phố:</label>
@@ -68,7 +68,7 @@ function Employer() {
                     <input className='employer-input' type='text' name='number' value={address.number} onChange={handleInput} /> <br />
                     <label className='employer-label'>Zip code: </label>
                     <input className='employer-input' type='text' name='zipCode' value={address.zipCode} onChange={handleInput} />    
-                    <hr color='orange' />
+                    <hr color='orange' /> */}
                     <div className='employer-btn-wrapper'>
                         <button className='employer-btn' type='submit' onClick={(e) =>  handleSubmit(e)}>Submit</button>
                         <button className='employer-btn' type='reset'>Clear</button>

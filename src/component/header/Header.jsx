@@ -1,14 +1,23 @@
 import { Link } from 'react-router-dom'
 import './Header.scss'
+// import { useEffect, useState } from 'react'
 
-function Header() {
+function Header({ isLogIn, handleSignOut }) {
+    // const [compName, setCompName] = useState('')
 
-    var compName = document.cookie.slice(9)
+    // var c = document.cookie.slice(9)
     // console.log(document.cookie.slice(9))
-    console.log(compName)
+    // console.log(compName)
+
+    // useEffect(() => {
+    //     var c = document.cookie.slice(9)
+    //     setCompName(c)
+    // }, [c])
 
     const deleteCookie = () => {
-        console.log(compName)
+        // console.log(compName)
+        // setCompName('')
+        handleSignOut()
         document.cookie = 'compName = ; expires=Thu, 18 Dec 2018 12:00:00 UTC; path=/;'
     }
 
@@ -29,8 +38,8 @@ function Header() {
                 <button className='btn-nav-right'>
                     <Link to='/employer'>Nhà tuyển dụng</Link>
                 </button>
-                <button className={'btn-nav-right ' + `${compName !== '' ? 'comp-name' : ''}`}>
-                    <Link to='/log-in'>{compName !== '' ? compName : 'Đăng nhập'}</Link>
+                <button className={'btn-nav-right ' + `${isLogIn !== false ? 'comp-name' : ''}`}>
+                    <Link to='/log-in'>{isLogIn !== false ? document.cookie.slice(9) : 'Đăng nhập'}</Link>
                 </button>
                 <div className='sign-out-wrapper' onClick={() => deleteCookie()}>
                     <p className='sign-out-txt'>Đăng xuất</p>

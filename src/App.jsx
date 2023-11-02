@@ -13,6 +13,15 @@ function App() {
 
   const [jobs, setJobs] = useState([])
   const [companies, setCompanies] = useState([])
+  const [isLogIn, setIsLogIn] = useState(false)
+
+  const handleLogIn = () => {
+    setIsLogIn(true)
+  }
+
+  const handleSignOut = () => {
+    setIsLogIn(false)
+  }
 
   const getData = async () => {
     const jobs = await axios.get('http://localhost:8080/getAllJob')
@@ -29,14 +38,14 @@ function App() {
   return (
     <div className='App'>
       <Router>
-        <Header />
+        <Header isLogIn={isLogIn} handleSignOut={handleSignOut}/>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/company' element={<Company companies={companies} />} />
-          <Route path='/job' element={<Job jobs={jobs} />} />
+          <Route path='/job' element={<Job jobs={jobs} isLogIn={isLogIn} />} />
           <Route path='/employer' element={<Employer />} />
           <Route path='/log-in' element={<PickUser />} />
-          <Route path='/log-in/employer' element={<LogIn />} />
+          <Route path='/log-in/employer' element={<LogIn onLogIn={handleLogIn} />} />
           <Route path='/log-in/candidate' element={<LogIn />} />
         </Routes>
       </Router>

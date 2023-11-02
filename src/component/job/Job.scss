@@ -7,10 +7,10 @@
     .job-wrapper{
         width: 60%;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         border: 1px solid orange;
         border-radius: 10px;
-        padding: 20px 250px 20px 50px; 
+        padding: 20px; 
         box-sizing: border-box;
         margin-top: 20px;
 
@@ -25,6 +25,7 @@
         }
 
         .job-right{
+            margin-left: 50px;
             .job-name{
                 margin: 0;
             }
@@ -33,9 +34,97 @@
                 margin: 0;
             }
 
-            .job-address{
-                margin: 0;
+            .jd{
+                margin-top: 10px;
             }
         }
     }
+
+    .addJobBtn{
+        margin-top: 20px;
+        background-color: orange;
+        color: #fff;
+        border-radius: 10px;
+        padding: 5px;
+    }
+
+    .modal {
+        // display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      }
+      
+      /* Modal Content/Box */
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 40%; /* Could be more or less, depending on screen size */
+        // height: 30%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .add-job-title{
+            text-align: center;
+            margin: 0;
+        }
+
+        .form-job-wrapper{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .input-wrapper{
+                display: flex;
+                align-items: center;
+
+                .form-job-label{
+                    font-size: 15px;
+                    padding: 5px;
+                }
+
+                .form-job-input{
+                    width: 300px;
+                    // height: 30px;
+                    margin: 10px;
+                    font-size: 18px;
+                    padding: 5px;
+                }
+            }
+        }
+      }
+      
+      /* The Close Button */
+      .close {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 0;
+        right: 10px;
+      }
+      
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .add-job-btn{
+        background-color: orange;
+        color: #fff;
+        padding: 5px 10px;
+      }
 }

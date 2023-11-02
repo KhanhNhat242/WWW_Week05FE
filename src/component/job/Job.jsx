@@ -8,20 +8,35 @@ function Job({ jobs, isLogIn }) {
         jobName: '',
         jobDesc: '',
     })
+    const [skill, setSkill] = useState({
+        skillType: 0,
+        skillDesc: '',
+        skillName: '',
+    })
+    const [jobSKill, setJobSkill] = useState({
+        skillLevel: 0,
+        moreInfo: '',
+    })
 
     const handleInput = (e) => {
         const {name, value} = e.target
 
         setJob({...job, [name]: value})
+        setSkill({...skill, [name]: value})
+        setJobSkill({...jobSKill, [name]: value})
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
+        console.log(skill.skillType)
+
         await axios.post('http://localhost:8080/addJob', job)
+        await axios.post('http://localhost:8080/addSkill', skill)
+        await axios.post('http://localhost:8080/addJobSkill', jobSKill)
     }
 
-    // console.log(jobs)
+    console.log(jobs)
 
     return (
         <div className='job-container'>
@@ -29,7 +44,7 @@ function Job({ jobs, isLogIn }) {
                 jobs.map((j) => {
                     return (
                         <>
-                            <div className="job-wrapper">
+                            <div className="job-wrapper" key={j.id}>
                                 <div className='job-left'>
                                     <h1 className="skill-level">ADVANCE</h1>
                                 </div>
@@ -53,10 +68,35 @@ function Job({ jobs, isLogIn }) {
                         <div className='input-wrapper'>
                             <label className='form-job-label'>Tên: </label>
                             <input className='form-job-input' type='text' name='jobName' onChange={handleInput} />
-                        </div>
-                        <div className='input-wrapper'>
                             <label className='form-job-label'>JD: </label>
                             <textarea className='form-job-input' name='jobDesc' rows='4' onChange={handleInput}></textarea>
+                        </div>
+                        <h2 className='add-job-title'>Kĩ năng</h2>
+                        <div className='input-wrapper'>
+                            <label className='form-job-label'>Tên kĩ năng</label>
+                            <input className='form-job-input' type='text' name='skillName' /><br />
+                            <label className='form-job-label'>Loại kỹ năng</label>
+                            <select className='form-job-input' name='skillType'>
+                                <option value={0}>UNSPECIFIC</option>
+                                <option value={1}>TECHNICAL_SKILL</option>
+                                <option value={2}>SOFT_SKILL</option>
+                            </select>
+                        </div>
+                        <div className='input-wrapper'>
+                            <label className='form-job-label' style={{width: '11%'}}>Mô tả kĩ năng</label>
+                            <textarea className='form-job-input' name='skillDesc' rows='4'></textarea><br />
+                            <label className='form-job-label' style={{width: '10%'}}>Mô tả thêm về công việc</label>
+                            <textarea className='form-job-input' name='moreInfo' rows={4}></textarea>
+                        </div>
+                        <div className='input-wrapper'>
+                            <label>Cấp bậc kĩ năng</label>
+                            <select className='form-job-input' name='skillLevel'>
+                                <option value={1}>BEGINER</option>
+                                <option value={2}>IMTERMEDIATE</option>
+                                <option value={3}>ADVANCED</option>
+                                <option value={4}>PROFESSIONAL</option>
+                                <option value={5}>MASTER</option>
+                            </select>
                         </div>
                     </form>
                     <button className='add-job-btn' onClick={(e) => {

@@ -7,36 +7,45 @@
     .company-wrapper{
         border: 1px solid orange;
         border-radius: 10px;
-        width: 70%;
+        width: 50%;
         margin-top: 20px;
 
         .name{
             text-align: center;
             margin: 0;
         }
-
-        .email-phone-wrapper{
+        .company-detail-wrapper{
             display: flex;
-            justify-content: flex-start;
+            justify-content: space-around;
 
-            .email{
-                margin-left: 10px;
+            .email-phone-wrapper{
+                display: flex;
+                flex-direction: column;
+                
+                .email{
+                    margin-left: 10px;
+                }
+        
+                .phone{
+                    margin-left: 10px;
+                }
             }
     
-            .phone{
-                margin-left: 30px;
+            .about-city-wrapper{
+                display: flex;
+                flex-direction: column;
+                
+                .about{
+                    margin-left: 10px;
+                }
+    
+                .city{
+                    margin-left: 10px;
+                }
             }
-        }
-
-        .about{
-            margin-left: 10px;
         }
 
         .link{
-            margin-left: 10px;
-        }
-
-        .address{
             margin-left: 10px;
         }
     }

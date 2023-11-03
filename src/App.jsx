@@ -11,9 +11,10 @@ import LogIn from './component/logIn/LogIn'
 
 function App() {
 
-  const [jobs, setJobs] = useState([])
+  // const [jobs, setJobs] = useState([])
   const [companies, setCompanies] = useState([])
   const [isLogIn, setIsLogIn] = useState(false)
+  const [jobSkills, setJobSkills] = useState([])
 
   const handleLogIn = () => {
     setIsLogIn(true)
@@ -24,14 +25,19 @@ function App() {
   }
 
   const getData = async () => {
-    const jobs = await axios.get('http://localhost:8080/getAllJob')
+    // const jobs = await axios.get('http://localhost:8080/getAllJob')
     const companies = await axios.get('http://localhost:8080/getAllCompany')
+    const jobSkills = await axios.get('http://localhost:8080/findAllJobSkill')
 
-    setJobs(jobs.data)
+    // setJobs(jobs.data)
     setCompanies(companies.data)
+    setJobSkills(jobSkills.data)
   }
 
   useEffect(() => {
+    if(document.cookie !== '')
+      setIsLogIn(true)
+    // console.log(document.cookie)
     getData()
   }, [])
 
@@ -42,7 +48,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/company' element={<Company companies={companies} />} />
-          <Route path='/job' element={<Job jobs={jobs} isLogIn={isLogIn} />} />
+          <Route path='/job' element={<Job jobSkills={jobSkills} isLogIn={isLogIn} />} />
           <Route path='/employer' element={<Employer />} />
           <Route path='/log-in' element={<PickUser />} />
           <Route path='/log-in/employer' element={<LogIn onLogIn={handleLogIn} />} />

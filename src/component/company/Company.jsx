@@ -1,7 +1,7 @@
 import './Company.scss'
 
 function Company({ companies }) {
-    // console.log(companies)
+    console.log(companies)
 
     return ( 
         <div className="company-container">
@@ -11,13 +11,17 @@ function Company({ companies }) {
                         <>
                             <div className="company-wrapper" key={c.id}>
                                 <h2 className="name">{c.compName}</h2>
-                                <div className='email-phone-wrapper'>
-                                    <p className="email">Email: {c.email}</p>
-                                    <p className="phone">Phone: {c.phone}</p>
+                                <div className='company-detail-wrapper'>
+                                    <div className='email-phone-wrapper'>
+                                        <p className="email">Email: {c.email}</p>
+                                        <p className="phone">Phone: {c.phone}</p>
+                                    </div>
+                                    <div className='about-city-wrapper'>
+                                        <p className="about">About: {c.about}</p>
+                                        <p className='city'>City: {c.address.city}</p>
+                                    </div>
                                 </div>
-                                <p className="about">About: {c.about}</p>
-                                <a className="link">{c.webUrl}</a>
-                                {/* <p className="address">Address: {`${c.address.number + ' ' + c.address.street + ' street, ' + c.address.city + ' city, ' + c.address.country}`}</p> */}
+                                <a className="link">Website: {c.webUrl}</a>
                             </div>
                         </>
                     )

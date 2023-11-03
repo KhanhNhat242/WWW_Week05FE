@@ -2,7 +2,7 @@ import { useState } from 'react';
 import './Job.scss'
 import axios from 'axios';
 
-function Job({ jobs, isLogIn }) {
+function Job({ isLogIn, jobSkills }) {
     const [block, setBlock] = useState('none')
     const [job, setJob] = useState({
         jobName: '',
@@ -14,7 +14,7 @@ function Job({ jobs, isLogIn }) {
         skillName: '',
     })
     const [jobSKill, setJobSkill] = useState({
-        skillLevel: 0,
+        skillLevel: 1,
         moreInfo: '',
     })
 
@@ -29,32 +29,33 @@ function Job({ jobs, isLogIn }) {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        console.log(skill.skillType)
+        // console.log(job)
+        // console.log(skill)
+        // console.log(jobSKill)
 
         await axios.post('http://localhost:8080/addJob', job)
         await axios.post('http://localhost:8080/addSkill', skill)
         await axios.post('http://localhost:8080/addJobSkill', jobSKill)
     }
 
-    console.log(jobs)
+    // console.log(jobs)
+    // console.log(jobSkills)
 
     return (
         <div className='job-container'>
             {
-                jobs.map((j) => {
+                jobSkills.map((j) => {
                     return (
-                        <>
-                            <div className="job-wrapper" key={j.id}>
-                                <div className='job-left'>
-                                    <h1 className="skill-level">ADVANCE</h1>
-                                </div>
-                                <div className="job-right">
-                                    <h2 className="job-name">Tuyển DEV {j.jobName}</h2>
-                                    <h4 className="company-name">Công ty {j.company.compName}</h4>
-                                    <p className="jd">{j.jobDesc}</p>
-                                </div>
+                        <div className="job-wrapper" key={j.jobId.id}>
+                            <div className='job-left'>
+                                <h1 className="skill-level">{j.skillLevel}</h1>
                             </div>
-                        </>
+                            <div className="job-right">
+                                <h2 className="job-name">{j.jobId.jobName}</h2>
+                                <h4 className="company-name">Công ty {j.jobId.company.compName}</h4>
+                                <p className="jd">{j.jobId.jobDesc}</p>
+                            </div>
+                        </div>
                     )
                 })
             }
@@ -74,9 +75,9 @@ function Job({ jobs, isLogIn }) {
                         <h2 className='add-job-title'>Kĩ năng</h2>
                         <div className='input-wrapper'>
                             <label className='form-job-label'>Tên kĩ năng</label>
-                            <input className='form-job-input' type='text' name='skillName' /><br />
+                            <input className='form-job-input' type='text' name='skillName' onChange={handleInput} /><br />
                             <label className='form-job-label'>Loại kỹ năng</label>
-                            <select className='form-job-input' name='skillType'>
+                            <select className='form-job-input' name='skillType' onChange={handleInput}>
                                 <option value={0}>UNSPECIFIC</option>
                                 <option value={1}>TECHNICAL_SKILL</option>
                                 <option value={2}>SOFT_SKILL</option>
@@ -84,13 +85,13 @@ function Job({ jobs, isLogIn }) {
                         </div>
                         <div className='input-wrapper'>
                             <label className='form-job-label' style={{width: '11%'}}>Mô tả kĩ năng</label>
-                            <textarea className='form-job-input' name='skillDesc' rows='4'></textarea><br />
+                            <textarea className='form-job-input' name='skillDesc' rows='4' onChange={handleInput}></textarea><br />
                             <label className='form-job-label' style={{width: '10%'}}>Mô tả thêm về công việc</label>
-                            <textarea className='form-job-input' name='moreInfo' rows={4}></textarea>
+                            <textarea className='form-job-input' name='moreInfo' rows={4} onChange={handleInput}></textarea>
                         </div>
                         <div className='input-wrapper'>
                             <label>Cấp bậc kĩ năng</label>
-                            <select className='form-job-input' name='skillLevel'>
+                            <select className='form-job-input' name='skillLevel' onChange={handleInput}>
                                 <option value={1}>BEGINER</option>
                                 <option value={2}>IMTERMEDIATE</option>
                                 <option value={3}>ADVANCED</option>

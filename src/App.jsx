@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react'
 import Employer from './component/employer/Employer'
 import PickUser from './component/logIn/pickUser/PickUser'
 import LogIn from './component/logIn/LogIn'
+import Candidate from './component/candidate/Candidate'
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
           <Route path='/company' element={<Company companies={companies} />} />
           <Route path='/job' element={<Job jobSkills={jobSkills} isLogIn={isLogIn} />} />
           <Route path='/employer' element={<Employer />} />
+          <Route path='/candidate' element={<Candidate />} />
           <Route path='/log-in' element={<PickUser />} />
           <Route path='/log-in/employer' element={<LogIn onLogIn={handleLogIn} />} />
           <Route path='/log-in/candidate' element={<LogIn />} />

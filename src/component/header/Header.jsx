@@ -36,6 +36,9 @@ function Header({ isLogIn, handleSignOut }) {
             </div>
             <div className='nav-right'>
                 <button className='btn-nav-right'>
+                    <Link to='/candidate'>Ứng viên</Link>
+                </button>
+                <button className='btn-nav-right'>
                     <Link to='/employer'>Nhà tuyển dụng</Link>
                 </button>
                 <button className={'btn-nav-right ' + `${isLogIn !== false ? 'comp-name' : ''}`}>
